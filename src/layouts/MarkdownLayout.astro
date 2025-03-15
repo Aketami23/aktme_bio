@@ -1,0 +1,18 @@
+---
+const { frontmatter } = Astro.props;
+
+import BaseLayout from "./BaseLayout.astro";
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+    <h1>{frontmatter.title}</h1>
+    <p>{frontmatter.pubDate}</p>
+
+    <slot />    
+</BaseLayout>
+
+<style>
+    slot.h1 {
+        color: red;
+    }
+</style>

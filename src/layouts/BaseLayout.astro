@@ -1,0 +1,44 @@
+---
+import Navigation from "../components/Navigation.astro"
+import TablerOfContents from "./TableOfContents.astro"
+const {pageTitle, headings} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pageTitle}</title>
+</head>
+<body>
+    <Navigation />
+    <main class="container">
+      <aside class="toc">
+        <TablerOfContents headings={headings} />
+      </aside>
+      <section class="content">
+        <slot />
+      </section>
+    </main>
+    <style>
+      .container {
+        margin-top: 60px;
+        padding: 20px;
+      }
+      .toc {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 20%;
+      }
+      .content {
+        margin-left: 20%;
+        width: 80%;
+      }
+    </style>
+    <footer>
+      <p>© 2024 aktm</p>
+    </footer>
+</body>  
+</html>

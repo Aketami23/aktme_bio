@@ -1,0 +1,19 @@
+---
+import { Content as MarkdownContent, getHeadings } from "../mdContents/home.mdx";
+import BaseLayout from '../layouts/BaseLayout.astro'
+const headings = getHeadings();
+---
+
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <BaseLayout pageTitle="Home", headings={headings}>
+    <MarkdownContent />
+    </BaseLayout>
+</body>
+</html>

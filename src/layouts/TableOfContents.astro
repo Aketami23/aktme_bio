@@ -1,0 +1,45 @@
+---
+const { headings } = Astro.props;
+const filteredHeadings = headings.filter((headings) => headings.depth <= 2);
+---
+<style>
+  nav {
+    margin-top: 20px;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  nav li + li {
+    margin-top: 10px;
+  }
+  nav a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  nav a:hover {
+    background-color: #007acc;
+    color: #fff;
+  }
+</style>
+
+<nav>
+  <ul>
+    {filteredHeadings.map((heading) => (
+      <li>
+        <a href={`#${heading.slug}`}>{heading.text}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

@@ -1,0 +1,38 @@
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/description">Description</a>
+  </nav>
+</header>
+
+<style>
+    header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10000;
+    }
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    a {
+    display: inline-block;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+</style>
