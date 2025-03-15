@@ -1,40 +1,21 @@
 ---
+import { Content as MarkdownContent, getHeadings } from "../mdContents/about.mdx";
 import BaseLayout from '../layouts/BaseLayout.astro'
-const pageTitle = "About"
-
-const identity = {
-    firstName: "John",
-    lastName: "Doe",
-    country : "USA",
-    bobbies: ["reading", "swimming", "coding"]
-}
-
-const isFree = false
-
-const titleColor = "purple"
+const headings = getHeadings();
+import { ViewTransitions } from 'astro:transitions';
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-
-    <h1>{pageTitle}</h1>
-    <style define:vars={{ titleColor }}>
-        h1 {
-            color: var(--titleColor);
-        }
-    </style>
-    <p>aboutページです</p>
-    <dl>
-        <dt>First Name</dt>
-        <dd>{identity.firstName}</dd>
-        <dt>Last Name</dt>
-        <dd>{identity.lastName}</dd>
-        <dt>Country</dt>
-        <dd>{identity.country}</dd>
-        <dt>Hobbies</dt>
-        <dd>{identity.bobbies.map((bobby, index) => (
-            <span>{bobby}{index !== identity.bobbies.length - 1 ? ', ' : ''}</span>
-        ))}</dd>
-    </dl>
-
-    <p>{isFree ? '無料' : '有料'}</p>
-</BaseLayout> 
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <ViewTransitions />
+</head>
+<body>
+    <BaseLayout pageTitle="About", headings={headings}>
+    <MarkdownContent />
+    </BaseLayout>
+</body>
+</html>

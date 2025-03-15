@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownLayout.astro
 title: '続きの記事'
 pubDate: '20250202'
 ---

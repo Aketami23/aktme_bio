@@ -1,13 +1,43 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
-const allPosts = await Astro.glob('../pages/posts/*.md')
+import { ViewTransitions } from 'astro:transitions';
+const allPosts = await Astro.glob('./posts/*.md')
 const pageTitle = "Blog"
+import Navigation from "../components/Navigation.astro"
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <h1>{pageTitle}</h1>
-
-    <ul>
-        {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
-    </ul>
-</BaseLayout>
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <ViewTransitions />
+</head>
+<body>
+    <Navigation />
+    <main class="container">
+        <ul>
+            {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+        </ul>
+    </main>
+    <style>
+      .container {
+        margin-top: 60px;
+        padding: 20px;
+      }
+      .toc {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 20%;
+      }
+      .content {
+        margin-left: 20%;
+        width: 80%;
+      }
+    </style>
+    <footer>
+      <p>© 2024 aktm</p>
+    </footer>
+</body>
+</html>

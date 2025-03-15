@@ -1,7 +1,6 @@
 ---
-import { Content as MarkdownContent, getHeadings } from "../mdContents/home.mdx";
-import BaseLayout from '../layouts/BaseLayout.astro'
-const headings = getHeadings();
+import { ViewTransitions } from 'astro:transitions';
+import Navigation from "../components/Navigation.astro"
 ---
 
 <!DOCTYPE html>
@@ -9,11 +8,38 @@ const headings = getHeadings();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+    <ViewTransitions />
 </head>
 <body>
-    <BaseLayout pageTitle="Home", headings={headings}>
-    <MarkdownContent />
-    </BaseLayout>
+    <Navigation />
+    <div id="luxy">
+      <main class="container">
+        <img src="/img1.webp"/>
+        <img src="/img2.webp"/>
+        <img src="/img3.webp"/>
+      </main>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
+    </style>
+    <script is:inline src="/js/luxy.min.js"></script>
+    <script>
+        luxy.init({
+            wrapper: '#luxy',
+            targets : '.luxy-el',
+            wrapperSpeed:  0.09
+        });
+    </script>
+    <footer>
+      <small>© 2024 aktm</small>
+    </footer>
 </body>
 </html>
